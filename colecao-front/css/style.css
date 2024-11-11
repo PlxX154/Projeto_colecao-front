@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    background-color: #f0f4f8; /* Azul claro como fundo */
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #305f72; /* Azul escuro */
+    color: #fff;
+}
+
+header .logo{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+header .logo img {
+    width: 100px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 30px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Seção Sobre a Empresa */
+.sobre {
+    padding: 50px;
+    text-align: justify;
+   
+    border: 1px solid #b0d0d3; /* Borda azul pastel */
+}
+
+.sobre h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sobre p {
+    margin-bottom: 20px;
+}
+
+.sobre-img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Galeria de Imagens */
+.galeria {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.galeria h2 {
+    margin-bottom: 30px;
+}
+
+.galeria .imagens {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center; /* Centraliza as imagens horizontalmente */
+    margin: 10px;
+}
+
+.galeria .imagens img {
+    width: 100%; /* As imagens ocuparão 100% da largura da célula da grid */
+    height: 100%; /* As imagens ocuparão 100% da altura da célula da grid */
+    object-fit: cover; /* Garante que a imagem se ajuste à célula sem distorcer */
+}
+
+/* Tabela de Preços */
+.servicos {
+    padding: 50px;
+}
+
+.servicos h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.servicos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.servicos table, .servicos th, .servicos td {
+    border: 1px solid #305f72; /* Azul escuro */
+}
+
+.servicos th{
+    background-color: #557a83; /* Borda azul médio */
+    color: white;
+}
+
+.servicos th, .servicos td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Cores zebradas */
+.servicos tr:nth-child(odd) {
+    background-color: #f0f4f8; /* Azul claro pastel para linhas ímpares */
+}
+
+.servicos tr:nth-child(even) {
+    background-color: #ffffff; /* Branco para linhas pares */
+}
+
+
+/* Formulário de Contato */
+.contato {
+    padding: 50px;
+}
+
+.contato h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contato form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contato label {
+    margin-bottom: 5px;
+}
+
+.contato input, .contato textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #b0d0d3; /* Borda azul pastel */
+}
+
+.contato button {
+    padding: 10px;
+    background-color: #557a83; /* Borda azul médio */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.contato button:hover {
+    background-color: #305f72; /* Igual ao cabeçalho */
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #305f72; /* Igual ao cabeçalho */
+    color: #fff;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
