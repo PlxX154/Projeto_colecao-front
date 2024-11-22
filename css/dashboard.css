@@ -1,0 +1,33 @@
+/* ▼ Início do CSS do Sistema ▼ */
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+:root {
+    --cor-fundo: #C6C6C6;
+    --cor-modal: rgba(0, 0, 0, 0.5);
+    --cor-sombra-modal: rgba(0, 0, 0, 0.6);
+
+    --cor-fonte: #03e9f4;
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+
+    --cor-linha-principal: #FFFAFA;
+    --cor-linha-secundaria: #F5F5F5;
+
+    --fonte: "SUSE", system-ui;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor-fundo);
+    font-family: var(--fonte);
+    font-size: 16px;
+}
+/* ▲ Início do CSS do Sistema ▲ */
+
+
+/* ▼▲ */

@@ -1,0 +1,95 @@
+/* ▼ Início do CSS do Sistema ▼ */
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+:root {
+    --cor-fundo: #C6C6C6;
+    --cor-modal: rgba(0, 0, 0, 0.5);
+    --cor-sombra-modal: rgba(0, 0, 0, 0.6);
+
+    --cor-fonte: #03e9f4;
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+
+    --cor-linha-principal: #FFFAFA;
+    --cor-linha-secundaria: #F5F5F5;
+
+    --fonte: "SUSE", system-ui;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor-fundo);
+    font-family: var(--fonte);
+    font-size: 16px;
+    
+}
+/* ▲ Início do CSS do Sistema ▲ */
+
+
+/* ▼ Caixa de Edição de Usuário ▼ */
+.container {
+    width: 420px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: var(--cor-modal);
+    border-radius: 10px;
+    box-shadow: var(--cor-sombra-modal);
+}
+
+.container h1 {
+    margin-bottom: 20px;
+    color: var(--cor-branco);
+    text-align: center;
+}
+
+.container label {
+    color: var(--cor-fonte);
+}
+
+.container .input-box {
+    height: 60px;
+    width: 100%;
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    height: 130%;
+    width: 100%;
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+    color: var(--cor-branco);
+}
+
+.input-box input::placeholder {
+    color: var(--cor-branco);
+}
+
+.container .btn {
+    height: 40px;
+    width: 100%;
+    background-color: var(--cor-fonte);
+    border: none;
+    border-radius: 8px;    
+    cursor: pointer;
+}
+/* ▲ Caixa de Edição de Usuário ▲ */
+
+/* Excluir */
+.excluir {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* ▼▲ */

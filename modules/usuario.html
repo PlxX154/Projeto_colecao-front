@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>O colecionador</title>
+
+    <link rel="stylesheet" href="/css/cabecalho.css">
+    <link rel="stylesheet" href="/css/usuario.css">
+    <script src="/js/usuario.js" defer></script>
+
+</head>
+
+<body>
+
+    <!-- ▼ HEADER ▼ -->
+    <header class="cabecalho">
+
+        <a href="/modules/principal.html"><img src="/assets/tiopatinhas.png" alt="Logo"></a>
+
+        <nav>
+            <ul>
+                <a href="/modules/usuario.html">
+                    <li>Usuário</li>
+                </a>
+                <a href="/modules/colecao.html">
+                    <li>Coleção</li>
+                </a>
+                <a href="/modules/dashboard.html">
+                    <li>Dashboard</li>
+                </a>
+                <a href="/modules/login.html">
+                    <li>Sair</li>
+                </a>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- ▲ HEADER ▲ -->
+
+    <br>
+    <br>
+
+    <!-- ▼ MAIN ▼ -->
+    <main>
+
+        <!-- Formulário de Edição de Usuário -->
+        <div class="container">
+
+            <form>
+
+                <h1>Edição de Usuário</h1>
+
+                <div class="input-box">
+                    <label>Nome</label>
+                    <input placeholder="Nome" type="text" id="nome" name="nome" minlength="3" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Email</label>
+                    <input placeholder="Email" type="email" id="email" name="email" minlength="3" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Login</label>
+                    <input placeholder="Login" type="text" id="login" name="login" minlength="3" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Senha</label>
+                    <input placeholder="Senha" type="password" id="password" name="password" minlength="3" required>
+                </div>
+
+                <button type="submit" class="btn">Gravar</button>
+
+            </form>
+
+        </div>
+
+        <br>
+
+        <p class="excluir">Excluir Usuário</p>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </main>
+    <!-- ▲ MAIN ▲ -->
+
+</body>
+
+</html>

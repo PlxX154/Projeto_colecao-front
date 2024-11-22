@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coleção</title>
+
+    <link rel="stylesheet" href="/css/cabecalho.css">
+    <link rel="stylesheet" href="/css/colecao.css">
+    <script src="/js/colecao.js" defer></script>
+
+</head>
+
+<body>
+
+    <!-- ▼ HEADER ▼ -->
+    <header class="cabecalho">
+
+        <a href="/modules/principal.html"><img src="/assets/tiopatinhas.png" alt="Logo"></a>
+
+        <nav>
+            <ul>
+                <a href="/modules/usuario.html">
+                    <li>Usuário</li>
+                </a>
+                <a href="/modules/colecao.html">
+                    <li>Coleção</li>
+                </a>
+                <a href="/modules/dashboard.html">
+                    <li>Dashboard</li>
+                </a>
+                <a href="/modules/login.html">
+                    <li>Sair</li>
+                </a>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- ▲ HEADER ▲ -->
+
+    <!-- ▼ MAIN ▼ -->
+    <main>
+
+        <div class="exibir">
+            <a id="exibir">Mostrar</a>
+        </div>
+
+        <br>
+
+        <!-- ▼ .principal | .formulario ▼ -->
+        <div class="principal">
+            <div class="formulario">
+
+                <h2>Colecionável</h2>
+
+                <form action="" id="formulario">
+
+                    <div>
+                        <input placeholder="Nome:" type="text" id="nome" name="nome">
+                    </div>
+
+                    <div>
+                        <input placeholder="País:" type="text" id="pais" name="pais">
+                    </div>
+
+                    <div>
+                        <input placeholder="Ano:" type="number" id="ano" name="ano">
+                    </div>
+
+                    <div>
+                        <input placeholder="Valor R$:" type="number" id="valor" name="valor">
+                    </div>
+
+                    <div>
+                        <textarea placeholder="Detalhes:" id="mensagem" name="mensagem"></textarea>
+                    </div>
+
+                    <div class="upload">
+                        <input type="file" id="arquivo" name="arquivo" accept="image/*" hidden>
+                        <label for="arquivo" class="botao" id="botao-label">Selecionar Arquivo</label>
+                        <span id="nome-arquivo">Nenhum arquivo selecionado.</span>
+                        <!-- vou trocar o "Nenhum arquivo selecionado" pelo arquivo que selecionei -->
+                    </div>
+
+                    <div class="div-botao">
+                        <input class="botao" type="submit" value="Gravar">
+                        <input class="botao" type="button" value="Limpar" id="limpar">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- ▲ .principal | .formulario ▲ -->
+
+        <br>
+        <br>
+
+        <!-- ▼ Tabela ▼ -->
+        <table>
+            <caption>COLEÇÃO</caption>
+            <thead>
+                <tr>
+                    <th>IMAGEM</th>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>PAIS</th>
+                    <th>ANO</th>
+                    <th>VALOR</th>
+                    <th>DETALHES</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- ▲ Tabela ▲ -->
+
+    </main>
+    <!-- ▲ MAIN ▲ -->
+
+</body>
+
+</html>
