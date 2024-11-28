@@ -30,7 +30,7 @@
         };
 
         try {
-            const response = await fetch("http://localhost:8080/Colecionador/rest/usuario/cadastrar", options);
+            const response = await fetch("http://localhost:8080/colecao-back/rest/usuario/cadastrar", options);
             if (!response.ok) {
                 throw new Error(`Erro na requisição: ${response.statusText}`);
             }
