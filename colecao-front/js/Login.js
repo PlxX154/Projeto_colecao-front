@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Enviando login:', { login: usuario, senha: senha });
 
         try {
-            const response = await fetch("http://localhost:8080/Colecionador/rest/usuario/login", options);
+            const response = await fetch("http://localhost:8080/colecao-back/rest/usuario/login", options);
             console.log('Resposta HTTP:', response);
 
             if (!response.ok) {

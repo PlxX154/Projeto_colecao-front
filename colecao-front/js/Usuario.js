@@ -90,7 +90,7 @@ async function excluirUsuario(usuarioData) {
     };
 
     try {
-        const resultado = await fetch('http://localhost:8080/Colecionador/rest/usuario/excluir', options);
+        const resultado = await fetch('http://localhost:8080/colecao-back/rest/usuario/excluir', options);
         
         // Verificando o status da resposta
         console.log('Status da resposta:', resultado.status);  // Verifique o status da resposta
@@ -170,7 +170,7 @@ async function cadastrarUsuario(formData) {
     };
 
     try {
-        const response = await fetch('http://localhost:8080/Colecionador/rest/usuario/cadastrar', options);
+        const response = await fetch('http://localhost:8080/colecao-back/rest/usuario/cadastrar', options);
         const result = await response.json();
 
         if (result.idUsuario !== 0) {
@@ -195,7 +195,7 @@ async function atualizarUsuario(usuarioVO) {
     };
 
     try {
-        const response = await fetch('http://localhost:8080/Colecionador/rest/usuario/atualizar', options);
+        const response = await fetch('http://localhost:8080/colecao-back/rest/usuario/atualizar', options);
         if (response.ok) {
             alert("Usuário atualizado com sucesso!");
 

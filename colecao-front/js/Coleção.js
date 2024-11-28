@@ -6,7 +6,7 @@ const inputFile = document.getElementById('arquivo');
 const fileName = document.getElementById('nome-arquivo');
 const idUsuario = localStorage.getItem("idUsuario");
 
-let moeda = {};
+let coin = {};
 
 
 // Adiciona o nome do arquivo da imagem:
@@ -41,70 +41,70 @@ document.querySelector('#mostrar').addEventListener('click', function () {
 
 
 
-// Limpa os campos do formulário de cadastrar/editar moeda
+// Limpa os campos do formulário de cadastrar/editar coin
 limpar.addEventListener('click', (evento) => {
     evento.preventDefault();
-    moeda = {};
+    coin = {};
     form.reset();
     fileName.textContent = 'Nenhum arquivo selecionado';
 });
 
 
 
-// Listar moedas:
-async function buscarMoedas() {
-    let listaMoedas = {};
+// Listar coins:
+async function buscarcoins() {
+    let listacoins = {};
     let options = {
         method: "GET"
     };
 
-    const response = await fetch('http://localhost:8080/Colecionador/rest/moeda/listar', options);
+    const response = await fetch('http://localhost:8080/colecao-back/rest/coin/consultar', options);
 
     if (response.status === 204) {
-        alert("Nenhuma moeda encontrada");
+        alert("Nenhuma coin encontrada");
         return '';
     }
     const formData = await response.formData();
 
-    const moedasMap = {};
+    const coinsMap = {};
     for (let [key, value] of formData.entries()) {
-        const [idMoeda, type] = value.name.split('-');
-        if (!moedasMap[idMoeda]) {
-            moedasMap[idMoeda] = { id: idMoeda };
+        const [idcoin, type] = value.name.split('-');
+        if (!coinsMap[idcoin]) {
+            coinsMap[idcoin] = { id: idcoin };
         }
 
-        if (type === 'moeda.json') {
-            moedasMap[idMoeda].moedaVO = value;
+        if (type === 'coin.json') {
+            coinsMap[idcoin].coinVO = value;
 
         } else if (type === 'imagem.jpg') {
-            moedasMap[idMoeda].imagem = value;
+            coinsMap[idcoin].imagem = value;
         }
     }
 
-    listaMoedas = Object.values(moedasMap);
-    if (listaMoedas.length != 0) {
-        preencherTabela(listaMoedas);
+    listacoins = Object.values(coinsMap);
+    if (listacoins.length != 0) {
+        preencherTabela(listacoins);
     } else {
-        alert("Houve um problema na montagem do array de moedas");
+        alert("Houve um problema na montagem do array de coins");
     }
 }
 
-buscarMoedas();
+buscarcoins();
 
 
 
 
 // Preenchimento da tabela com os dados cadastrados/editados:
-// Preenchendo as informações da moeda e criando os botões:
-async function preencherTabela(listaMoedas) {
+// Preenchendo as informações da coin e criando os botões:
+async function preencherTabela(listacoins) {
     let tbody = document.getElementById('tbody');
     tbody.innerHTML = ''; // Limpa a tabela antes de preencher
 
-    // Percorre as moedas para adicionar as linhas à tabela
-    for (let moeda of listaMoedas) {
+    // Percorre as coins para adicionar as linhas à tabela
+    for (let coin of listacoins) {
         let tr = tbody.insertRow();
         let td_imagem = tr.insertCell();
-        let td_idMoeda = tr.insertCell();
+        let td_idcoin = tr.insertCell();
         let td_nome = tr.insertCell();
         let td_pais = tr.insertCell();
         let td_ano = tr.insertCell();
@@ -112,26 +112,26 @@ async function preencherTabela(listaMoedas) {
         let td_detalhes = tr.insertCell();
         let td_acoes = tr.insertCell();
 
-        // Adicionando a imagem da moeda, caso exista
-        if (moeda.imagem) {
-            const imgUrl = URL.createObjectURL(moeda.imagem);
+        // Adicionando a imagem da coin, caso exista
+        if (coin.imagem) {
+            const imgUrl = URL.createObjectURL(coin.imagem);
             const img = document.createElement('img');
             img.src = imgUrl;
             img.style.width = '80px';
             td_imagem.appendChild(img);
         }
 
-        // Preenchendo as informações da moeda
-        if (moeda.moedaVO) {
-            const moedaJson = await moeda.moedaVO.text();
-            const moedaData = JSON.parse(moedaJson)[0]; // Acessando o primeiro objeto do array
+        // Preenchendo as informações da coin
+        if (coin.coinVO) {
+            const coinJson = await coin.coinVO.text();
+            const coinData = JSON.parse(coinJson)[0]; // Acessando o primeiro objeto do array
 
-            td_idMoeda.innerText = moedaData.idMoeda || 'Não informado';
-            td_nome.innerText = moedaData.nome || 'Não informado';
-            td_pais.innerText = moedaData.pais || 'Não informado';
-            td_ano.innerText = moedaData.ano || 'Não informado';
-            td_valor.innerText = moedaData.valor || 'Não informado';
-            td_detalhes.innerText = moedaData.detalhes || 'Não informado';
+            td_idcoin.innerText = coinData.idcoin || 'Não informado';
+            td_nome.innerText = coinData.nome || 'Não informado';
+            td_pais.innerText = coinData.pais || 'Não informado';
+            td_ano.innerText = coinData.ano || 'Não informado';
+            td_valor.innerText = coinData.valor || 'Não informado';
+            td_detalhes.innerText = coinData.detalhes || 'Não informado';
 
             // Criando o botão de editar
             // Dentro da função preencherTabela, ao criar o botão "Editar"
@@ -146,8 +146,8 @@ async function preencherTabela(listaMoedas) {
             editar.style.borderRadius = '10px';
             editar.style.cursor = 'pointer';
 
-            // Passando a moeda completa para a função editarMoeda
-            editar.addEventListener('click', () => editarMoeda(moeda));  // Aqui a moeda selecionada é passada para editarMoeda
+            // Passando a coin completa para a função editarcoin
+            editar.addEventListener('click', () => editarcoin(coin));  // Aqui a coin selecionada é passada para editarcoin
 
             td_acoes.appendChild(editar);
 
@@ -164,8 +164,8 @@ async function preencherTabela(listaMoedas) {
             excluir.style.borderRadius = '10px';
             excluir.style.cursor = 'pointer';
 
-            // Usando addEventListener para chamar a função de exclusão com o idMoeda
-            excluir.addEventListener('click', () => excluirMoeda(moedaData.idMoeda)); // Passando apenas o idMoeda
+            // Usando addEventListener para chamar a função de exclusão com o idcoin
+            excluir.addEventListener('click', () => excluircoin(coinData.idcoin)); // Passando apenas o idcoin
 
             td_acoes.appendChild(excluir);
         }
@@ -180,32 +180,32 @@ async function preencherTabela(listaMoedas) {
 
 
 
-/* EXCLUIR MOEDA (TABELA)*/
-async function excluirMoeda(idMoeda) {
-    if (!idMoeda) {
-        console.log("idMoeda não foi passado corretamente.");
+/* EXCLUIR coin (TABELA)*/
+async function excluircoin(idcoin) {
+    if (!idcoin) {
+        console.log("idcoin não foi passado corretamente.");
         return;
     }
 
-    console.log('Excluindo moeda com ID:', idMoeda); // Verifique se o id está correto
+    console.log('Excluindo coin com ID:', idcoin); // Verifique se o id está correto
 
     let options = {
         method: "DELETE",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
-            idMoeda: idMoeda
+            idcoin: idcoin
         })
     };
 
-    const resultado = await fetch('http://localhost:8080/Colecionador/rest/moeda/atualizar', options);
+    const resultado = await fetch('http://localhost:8080/colecao-back/rest/coin/atualizar', options);
     if (resultado.ok == true) {
-        alert("Moeda atualizada");
-        moeda = {};  // Limpa os dados da moeda
+        alert("coin atualizada");
+        coin = {};  // Limpa os dados da coin
         form.reset();
         fileName.textContent = 'Nenhum arquivo selecionado';
-        buscarMoedas();
+        buscarcoins();
     } else {
-        alert("Houve um problema na atualização da moeda");
+        alert("Houve um problema na atualização da coin");
     }
 
 }
@@ -218,12 +218,12 @@ async function excluirMoeda(idMoeda) {
 
 
 
-// Gravar moeda na tabela:
+// Gravar coin na tabela:
 form.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
     const fileInput = document.getElementById('arquivo');
-    const idMoeda = moeda.idMoeda;
+    const idcoin = coin.idcoin;
     const nome = document.getElementById('nome').value;
     const pais = document.getElementById('pais').value;
     const ano = document.getElementById('ano').value;
@@ -238,8 +238,8 @@ form.addEventListener('submit', (evento) => {
         return;
     }
 
-    const moedaVO = {
-        idMoeda: idMoeda,
+    const coinVO = {
+        idcoin: idcoin,
         nome: nome,
         pais: pais,
         ano: ano,
@@ -248,7 +248,7 @@ form.addEventListener('submit', (evento) => {
         idUsuario: sessionStorage.getItem("idUsuario")
     }
 
-    const moedaJsonBlob = new Blob([JSON.stringify(moedaVO)], { type: 'application/json' });
+    const coinJsonBlob = new Blob([JSON.stringify(coinVO)], { type: 'application/json' });
 
     const formData = new FormData();
     if (file != undefined) {
@@ -256,12 +256,12 @@ form.addEventListener('submit', (evento) => {
     } else {
         formData.append('file', []);
     }
-    formData.append('moedaVO', moedaJsonBlob);
+    formData.append('coinVO', coinJsonBlob);
 
-    if (idMoeda != undefined) {
-        atualizarMoeda(formData);
+    if (idcoin != undefined) {
+        atualizarcoin(formData);
     } else {
-        cadastrarMoeda(formData);
+        cadastrarcoin(formData);
     }
 })
 
@@ -273,11 +273,12 @@ form.addEventListener('submit', (evento) => {
 
 
 
-// Cadastrar moeda:
-async function cadastrarMoeda(formData) {
+// Cadastrar coin:
+async function cadastrarcoin(formData, idUsuario) {
     try {
+        idUsuario = 1;
         // Enviar a requisição para o servidor
-        const response = await fetch('http://localhost:8080/Colecionador/rest/moeda/cadastrar', {
+        const response = await fetch('http://localhost:8080/colecao-back/rest/coin/cadastrar/' + idUsuario, {
             method: "POST",
             body: formData
         });
@@ -286,27 +287,27 @@ async function cadastrarMoeda(formData) {
 
         // Verificando se a resposta é OK (status 200-299)
         if (!response.ok) {
-            alert('Erro ao cadastrar moeda');
+            alert('Erro ao cadastrar coin');
             return;
         }
 
         // Verificar o tipo de conteúdo da resposta
         const contentType = response.headers.get("Content-Type");
         if (contentType && contentType.includes("application/json")) {
-            const moedaVO = await response.json();  // Processa a resposta JSON
+            const coinVO = await response.json();  // Processa a resposta JSON
 
-            // Se a moeda for cadastrada com sucesso, atualiza a lista de moedas
+            // Se a coin for cadastrada com sucesso, atualiza a lista de coins
             alert("Cadastro concluído!");
-            moeda = {};  // Limpa os dados da moeda
+            coin = {};  // Limpa os dados da coin
             form.reset();  // Reseta o formulário
             fileName.textContent = 'Nenhum arquivo selecionado';  // Limpa o nome do arquivo
-            buscarMoedas(); // Atualiza a lista de moedas
+            buscarcoins(); // Atualiza a lista de coins
         } else {
             alert('Resposta do servidor não contém JSON válido.');
         }
     } catch (error) {
-        console.error('Erro ao cadastrar moeda:', error);
-        alert('Erro ao cadastrar moeda. Verifique a conexão com o servidor ou os dados enviados.');
+        console.error('Erro ao cadastrar coin:', error);
+        alert('Erro ao cadastrar coin. Verifique a conexão com o servidor ou os dados enviados.');
     }
 }
 
@@ -316,25 +317,25 @@ async function cadastrarMoeda(formData) {
 
 
 
-// Atualizar moeda:
-async function atualizarMoeda(formData) {
+// Atualizar coin:
+async function atualizarcoin(formData) {
     let options = {
         method: "PUT",
         body: formData
     };
 
-    const resultado = await fetch('http://localhost:8080/Colecionador/rest/moeda/atualizar', options);
+    const resultado = await fetch('http://localhost:8080/Colecionador/rest/coin/atualizar', options);
     
     if (resultado.ok) {
-        alert("Moeda atualizada");
-        moeda = {};  // Limpa os dados da moeda
+        alert("coin atualizada");
+        coin = {};  // Limpa os dados da coin
         form.reset();  // Reseta o formulário
         fileName.textContent = 'Nenhum arquivo selecionado';  // Limpa o nome do arquivo
         
-        // Após atualizar, busque novamente as moedas para garantir que a tabela está atualizada
-        buscarMoedas(); // Atualiza a lista de moedas
+        // Após atualizar, busque novamente as coins para garantir que a tabela está atualizada
+        buscarcoins(); // Atualiza a lista de coins
     } else {
-        alert("Houve um problema na atualização da moeda");
+        alert("Houve um problema na atualização da coin");
     }
 }
 
@@ -342,40 +343,40 @@ async function atualizarMoeda(formData) {
 
 
 
-async function editarMoeda(dados) {
+async function editarcoin(dados) {
     console.log("Dados recebidos para edição:", dados);  // Verifique os dados recebidos
 
-    // Atualizar o título para "Editar Moeda"
+    // Atualizar o título para "Editar coin"
     const formTitle = document.querySelector('#form-title');
     if (formTitle) {
-        formTitle.innerText = 'Editar Moeda';  // Muda o título do formulário
+        formTitle.innerText = 'Editar coin';  // Muda o título do formulário
     } else {
         console.error('Elemento #form-title não encontrado');
     }
 
-    // Verificar se a moedaVO existe antes de tentar acessar seus dados
-    if (dados.moedaVO) {
-        // Ler o conteúdo do arquivo JSON (moedaVO) que está em 'dados.moedaVO'
-        const moedaJson = await dados.moedaVO.text(); // Lê o conteúdo do arquivo
-        const moedaData = JSON.parse(moedaJson)[0]; // Supondo que a moeda seja um array, pegue o primeiro item
+    // Verificar se a coinVO existe antes de tentar acessar seus dados
+    if (dados.coinVO) {
+        // Ler o conteúdo do arquivo JSON (coinVO) que está em 'dados.coinVO'
+        const coinJson = await dados.coinVO.text(); // Lê o conteúdo do arquivo
+        const coinData = JSON.parse(coinJson)[0]; // Supondo que a coin seja um array, pegue o primeiro item
 
-        // Preencher os campos do formulário com os dados da moeda
-        moeda.idMoeda = dados.id;  // Usando 'id' de dados, já que você passou 'id' diretamente
-        document.querySelector('#nome').value = moedaData.nome || '';  // Se não tiver nome, deixa em branco
-        document.querySelector('#pais').value = moedaData.pais || '';
-        document.querySelector('#ano').value = moedaData.ano || '';
-        document.querySelector('#valor').value = moedaData.valor || '';
-        document.querySelector('#detalhes').value = moedaData.detalhes || '';
+        // Preencher os campos do formulário com os dados da coin
+        coin.idcoin = dados.id;  // Usando 'id' de dados, já que você passou 'id' diretamente
+        document.querySelector('#nome').value = coinData.nome || '';  // Se não tiver nome, deixa em branco
+        document.querySelector('#pais').value = coinData.pais || '';
+        document.querySelector('#ano').value = coinData.ano || '';
+        document.querySelector('#valor').value = coinData.valor || '';
+        document.querySelector('#detalhes').value = coinData.detalhes || '';
 
         // Logar os valores preenchidos para verificação
         console.log("Dados no formulário após preenchimento:");
-        console.log("Nome:", moedaData.nome);
-        console.log("País:", moedaData.pais);
-        console.log("Ano:", moedaData.ano);
-        console.log("Valor:", moedaData.valor);
-        console.log("Detalhes:", moedaData.detalhes);
+        console.log("Nome:", coinData.nome);
+        console.log("País:", coinData.pais);
+        console.log("Ano:", coinData.ano);
+        console.log("Valor:", coinData.valor);
+        console.log("Detalhes:", coinData.detalhes);
     } else {
-        console.error("moedaVO não encontrado nos dados recebidos");
+        console.error("coinVO não encontrado nos dados recebidos");
     }
 
     // Exibir o formulário, caso esteja oculto
