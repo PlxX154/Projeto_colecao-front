@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+:root {
+    --cor-fundo: #C6C6C6;
+    --cor-modal: rgba(0, 0, 0, 0.5);
+    --cor-sombra-modal: rgba(0, 0, 0, 0.6);
+    --cor-fonte: #03e9f4;
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+    --cor-linha-principal: #FFFAFA;
+    /* Cor do campo de usuário */
+    --cor-linha-secundaria: #F5F5F5;
+    /* Cor do campo de senha */
+    --fonte: "SUSE", system-ui;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
+}
+
+header .logo {
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: #C6C6C6;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+
+
+.login {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0px 10px 30px var(--cor-sombra-modal);
+    margin-bottom: 10px;
+}
+
+.login h2 {
+    color: var(--cor-branco);
+    margin-bottom: 20px;
+}
+
+
+
+/* Cor da linha do usuário */
+.input-usuario {
+
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid var(--cor-linha-principal);
+    background: none;
+    color: var(--cor-branco);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Cor da linha da senha */
+.input-senha {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid var(--cor-linha-secundaria);
+    background: none;
+    color: var(--cor-branco);
+    font-size: 18px;
+    margin-bottom: 20px;
+
+}
+
+/* Cor da fonte usuário/senha */
+.input_usuario_senha input::placeholder {
+    color: var(--cor-branco);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #03e9f4;
+    border: none;
+    margin-top: 25px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.criar_conta {
+    margin-top: 40px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    cursor: pointer;
+
+}
+a {
+    text-decoration: none;
+}
+
+/* Estilização do rodapé fixado na parte inferior */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    background-color: var(--cor-fundo);
+}

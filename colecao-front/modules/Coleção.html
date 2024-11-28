@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../estilos/Coleção.css">
+    <script src="../js/Coleção.js" defer> </script>
+
+    <title>Coleção</title>
+</head>
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="../modules/Homepage.html"><img src="../Imagens/tiopatinhas.png" alt="logo" width="80px"></a>
+        </div>
+        <div class="menu">
+
+            <ul>
+                <li><a href="../modules/Edição usuário.html">Usuário</a></li>
+                <li><a href="../modules/Coleção.html">Coleção</a></li>
+                <li><a href="././Dashboard.html">Dashboard</a></li>
+                <li><a href="../modules/Login.html">Sair</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <div class="mostrar">
+        <a id="mostrar" href="javascript:void(0)">Mostrar</a>
+    </div>
+
+
+
+    <main>
+
+        <div class="principal">
+            <h2 id="form-title">Colecionável</h2>
+            <form id="form">
+                <div class="input_nome">
+                    <input name="nome" id="nome" type="text" placeholder="Nome:" class="input-nome" required>
+                </div>
+                <div class="input_pais">
+                    <input name="pais" id="pais" type="text" placeholder="País:" class="input-pais" required>
+                </div>
+                <div class="input_ano">
+                    <input name="ano" id="ano" type="text" placeholder="Ano:" class="input-ano" required>
+                </div>
+                <div class="input_valor">
+                    <input name="valor" id="valor" type="text" placeholder="Valor: R$" class="input-valor" required>
+                </div>
+                <div class="input_detalhes">
+                    <input name="detalhes" id="detalhes" type="text" placeholder="Detalhes:" class="input-detalhes" required>
+                </div>
+        
+                <section class="selecaoArquivo">
+                    <input type="file" id="arquivo" name="arquivo" accept="image/*" hidden>
+                    <label for="arquivo" class="botao" id="botao-label">Selecionar arquivo</label>
+                    <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+                </section>
+        
+                <input type="hidden" id="idMoeda" name="idMoeda">
+        
+                <section class="botoesInferiores">
+                    <button type="submit" id="gravar" class="botao">Gravar</button>
+                    <button type="button" id="limpar" class="botao">Limpar</button>
+                </section>
+            </form>
+        </div>
+        
+
+
+        <div class="secundario">
+            <h2>COLEÇÃO</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>País</th>
+                        <th>Ano</th>
+                        <th>Valor</th>
+                        <th>Detalhes</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+    </main>
+
+
+    
+</body>
+
+</html>

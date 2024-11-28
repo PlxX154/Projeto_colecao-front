@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+:root {
+    --cor-fundo: #C6C6C6;
+    --cor-modal: rgba(0, 0, 0, 0.5);
+    --cor-sombra-modal: rgba(0, 0, 0, 0.6);
+    --cor-fonte: #03e9f4;
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+    --cor-linha-principal: #FFFAFA;
+    --cor-linha-secundaria: #F5F5F5;
+    --fonte: "SUSE", system-ui;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
+}
+
+html {
+    background-color: var(--cor-fundo);
+
+}
+
+/* Estilo para o header */
+
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    margin-left: 20px;
+
+}
+
+.menu ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin-right: 90px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 40px;
+
+}
+
+/* Hover do menu:  */
+.menu li a:hover {
+    background-color: #03e9f4;
+    color: #000000;
+
+}
+
+body h2 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 23px;
+}
+
+.superior {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 130px;
+
+
+}
+
+.totalMoedas {
+    background-color: var(--cor-modal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0px 10px 30px var(--cor-sombra-modal);
+}
+
+.totalMoedas .verdinho {
+    color: var(--cor-fonte);
+}
+
+.totalMoedas p {
+    color: white;
+}
+
+.totalColecao {
+    background-color: var(--cor-modal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0px 10px 30px var(--cor-sombra-modal);
+}
+
+.totalColecao .verdinho2 {
+    color: var(--cor-fonte);
+}
+
+.totalColecao p {
+    color: white;
+}
+
+.moedasRecentes {
+    margin-top: 50px;
+}
+
+.moedas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+.moeda1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cor-modal);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 270px;
+    box-shadow: 0px 10px 30px var(--cor-sombra-modal);
+}
+
+.moeda2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cor-modal);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 270px;
+    box-shadow: 0px 10px 30px var(--cor-sombra-modal);
+}
+
+.moeda3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cor-modal);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 270px;
+    box-shadow: 0px 10px 30px var(--cor-sombra-modal);
+}
+
+.nomeMoeda1,
+.nomeMoeda2,
+.nomeMoeda3 {
+    color: var(--cor-fonte);
+    font-weight: bold;
+  margin-top: 15px;
+}

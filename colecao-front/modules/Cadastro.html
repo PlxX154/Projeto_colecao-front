@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/Cadastro.css">
+    
+    <title>Cadastro</title>
+</head>
+
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Imagens/tiopatinhas.png" alt="Logo" width="230px">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="cadastro">
+                <h2>Cadastro</h2>
+                <form id="form">
+                    <div class="input_nome">
+                        <input id="nome" type="text" placeholder="Nome" class="input-nome" required>
+                    </div>
+                    <div id="email" class="input_email">
+                        <input type="email" placeholder="E-mail" class="input-email" required>
+                    </div>
+                    <div id="usuario" class="input_usuario">
+                        <input type="text" placeholder="Usuário" class="input-usuario" required minlength="3">
+                    </div>
+                    <div class="input_senha">
+                        <input id="senha" type="password" placeholder="Senha" class="input-senha" required minlength="3">
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                </form>
+            </div>
+
+            <a href="../modules/Login.html">
+                <div class="voltar">Voltar</div>
+            </a>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por IsaP.</p>
+    </footer>
+    <script src="../js/Cadastro.js" defer> </script>
+</body>
+
+
+
+
+</html>
